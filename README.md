@@ -102,6 +102,12 @@ Alternatively, with PowerShell
 ./proxxied.ps1 dev
 ```
 
+Or with Docker Compose
+
+```bash
+docker compose up
+```
+
 The the client and server will be running on:
 - Client: `http://localhost:5173/`
 - Server: `http://localhost:3001/`
