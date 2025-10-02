@@ -24,6 +24,8 @@ type Store = {
   setGuideColor: (value: string) => void;
   guideWidth: number;
   setGuideWidth: (value: number) => void;
+  isCardBack: boolean;
+  setIsCardBack: (value: boolean) => void;
   zoom: number;
   setZoom: (value: number) => void;
   resetSettings: () => void;
@@ -48,6 +50,7 @@ const defaultPageSettings = {
   bleedEdgeWidth: 1,
   bleedEdge: true,
   guideColor: "#39FF14",
+  isCardBack: false,
   guideWidth: 0.5,
   cardSpacingMm: 0,
   horizontalSpacingMm: 0,
@@ -108,6 +111,7 @@ export const useSettingsStore = create<Store>()(
       setHorizontalSpacingMm: (mm) => set({ horizontalSpacingMm: Math.max(0, mm) }),
       setVerticalSpacingMm: (mm) => set({ verticalSpacingMm: Math.max(0, mm) }),
       setSymmetricSpacing: (value) => set({ symmetricSpacing: value }),
+      setIsCardBack: (value) => set({ isCardBack: value }),
       resetSettings: () => set({ ...defaultPageSettings }),
     }),
     {

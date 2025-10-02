@@ -42,6 +42,7 @@ export function PageView() {
   const symmetricSpacing = useSettingsStore((state) => state.symmetricSpacing);
   const horizontalSpacingMm = useSettingsStore((state) => state.horizontalSpacingMm);
   const verticalSpacingMm = useSettingsStore((state) => state.verticalSpacingMm);
+  const isCardBack = useSettingsStore((state) => state.isCardBack);
 
   const pageRef = useRef<HTMLDivElement>(null);
   const cards = useCardsStore((state) => state.cards);
@@ -277,6 +278,7 @@ export function PageView() {
                     height: `${gridHeightMm}mm`,
                     columnGap: symmetricSpacing ? `${cardSpacingMm}mm` : `${horizontalSpacingMm}mm`,
                     rowGap: symmetricSpacing ? `${cardSpacingMm}mm` : `${verticalSpacingMm}mm`,
+                    transform: isCardBack ? 'rotate(180deg)' : 'none'
                   }}
                 >
                   {page.map((card, index) => {

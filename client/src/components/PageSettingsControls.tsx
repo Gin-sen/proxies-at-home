@@ -48,6 +48,8 @@ export function PageSettingsControls() {
   const setHorizontalSpacingMm = useSettingsStore((s) => s.setHorizontalSpacingMm);
   const setVerticalSpacingMm = useSettingsStore((s) => s.setVerticalSpacingMm);
   const setSymmetricSpacing = useSettingsStore((s) => s.setSymmetricSpacing);
+  const isCardBack = useSettingsStore((s) => s.isCardBack);
+  const setIsCardBack = useSettingsStore((s) => s.setIsCardBack);
 
   const { reprocessSelectedImages } = useImageProcessing({
     unit: "mm",
@@ -173,6 +175,19 @@ export function PageSettingsControls() {
             onChange={(e) => setBleedEdge(e.target.checked)}
           />
           <Label htmlFor="bleed-edge">Enable Bleed Edge</Label>
+        </div>
+
+        {/* Card Back Mode */}
+        <div className="mt-4">
+          <div className="flex items-center gap-2 mb-2">
+            <Checkbox
+              id="card-back-mode"
+              checked={isCardBack}
+              onChange={(e) => setIsCardBack(e.target.checked)}
+            />
+            <Label htmlFor="card-back-mode">Card Back Mode</Label>
+          </div>
+          <HelperText>Rotates cards 180° for double-sided printing</HelperText>
         </div>
 
         {/* Card-to-card spacing */}
